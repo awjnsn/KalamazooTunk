@@ -2,6 +2,31 @@
 #include <time.h>
 #include "deck.h"
 
+/*
+	Representation of a standard card deck
+
+	Before use, a deck must be initialized.  Once initialized, a deck
+	can be drawn from up to DECK_SIZE times, before needing to be
+	re-shuffled.
+
+	Example usage:
+
+	card_deck deck;
+
+	deck_init(&deck);
+
+	while(!is_empty(&deck))
+	{
+		playing_card card = draw(&deck);
+
+		...
+	}
+
+	shuffle(&deck);
+
+	...
+*/
+
 //Function to initialize a deck, must be called before using a deck
 void deck_init(card_deck * deck)
 {
@@ -19,7 +44,6 @@ void deck_init(card_deck * deck)
 
 	//Shuffles the deck
 	shuffle(deck);
-
 }
 
 //Function to shuffle the deck of cards using the Fisher-Yates algorithm
